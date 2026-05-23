@@ -1,0 +1,247 @@
+body{
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 100vh;
+    font-family: 'Share Tech Mono', monospace;
+}
+.sign-up-bar{
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 24px;
+    font-weight: 800;
+    color: green;
+    margin-bottom: 28px;
+}
+.sign-up{
+    height: 700px;
+    width: 25%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: 24px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    z-index: 10;
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease , transform 0.3s ease;
+}
+.sign-up:hover{
+    box-shadow: 0px 0px 24px #044733;
+    transform: translateY(-5px);
+}
+.welcome{
+    font-size: 24px;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 800;
+    color: green;
+    margin-bottom: 12px;
+}
+.enter-name-id-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#enter-name-id{
+    background-color: #003a42;
+    border: none;
+    padding: 18px 42px 18px 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+}
+#enter-name-id:hover{
+    border: 1px solid green;
+}
+.enter-phoneNo-id-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#enter-phoneNo-id{
+    background-color: #003a42;
+    border: none;
+    padding: 18px 42px 18px 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+}
+#enter-phoneNo-id:hover{
+    border: 1px solid green;
+}
+.enter-hostelNo-id-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#enter-hostelNo-id{
+    background-color: #003a42;
+    border: none;
+    padding: 18px 42px 18px 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+}
+#enter-hostelNo-id:hover{
+    border: 1px solid green;
+}
+.enter-roomNo-id-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#enter-roomNo-id{
+    background-color: #003a42;
+    border: none;
+    padding: 18px 42px 18px 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+}
+#enter-roomNo-id:hover{
+    border: 1px solid green;
+}
+.enter-mail-id-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#enter-mail-id{
+    background-color: #003a42;
+    border: none;
+    padding: 18px 42px 18px 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+}
+#enter-mail-id:hover{
+    border: 1px solid green;
+}
+.password-id-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#password-id{
+    background-color: #003a42;
+    border: none;
+    padding: 18px 42px 18px 8px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-family: 'Share Tech Mono', monospace;
+}
+#password-id:hover{
+    border: 1px solid green;
+}
+.signUp{
+    background-color: green;
+    border: none;
+    padding: 18px 0px 18px 8px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: box-shadow 0.3s ease , transform 0.3s ease;
+    font-family: 'Share Tech Mono', monospace;
+}
+.signUp:hover{
+    box-shadow: 0px 0px 24px #539601;
+    transform: translateY(-5px);
+}
+.signUp:active{
+    box-shadow: 0px 0px 0px black;
+    transform: translateY(5px);
+}
+.hack-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    display: grid;
+
+    grid-template-columns: repeat(25, 1fr);
+    gap: 1px;
+    z-index: 0;
+
+    background-image: linear-gradient(
+        #000000,
+        #1a4511c0,
+        #2fff06,
+        #1a4511c0,
+        #000000
+    );
+
+    background-size: 100% 500%;
+    animation: flow 3s linear infinite;
+}
+@keyframes flow{
+    0%{
+        background-position: 0% 0%;
+    }
+    100%{
+        background-position: 100% 100%;
+    }
+}
+.box {
+    background-color: #000000;
+    aspect-ratio: 1/1;
+    transition: background-color 0.1s, color 0.1s, box-shadow 1.5s ease-out;
+    
+    /* 1. Perfect Centering Axis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 2. Scale Text Size to Container Width */
+    font-size: 3.5cqi; /* Container Query Inline units adjust to box sizes */
+    line-height: 1;    /* Collapses structural text line padding heights */
+    text-align: center;
+    
+    /* 3. Base Aesthetic Colors */
+    color: #092405; 
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 900;  /* Thickens characters like Ø and × to occupy space */
+    user-select: none;
+    overflow: hidden;  /* Prevents any oversized characters from creating layout scrolls */
+}
+
+.box:hover {
+    background-color: #00ff88;
+    color: #000000; 
+    box-shadow: 0 0 12px #00ff88, 0 0 25px #00ff88;
+    transform: scale(1.1) rotate(3deg); 
+    transition: 0s; 
+}
