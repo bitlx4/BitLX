@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-In-page</title>
+    <link rel="stylesheet" href="SignIn.css">
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+<body>
+
+    <div class="hack-box">
+
+    </div>
+
+    <div class="sign-in">
+        <div class="welcome">
+            Welcome to BIT_LX
+        </div>
+        <div class="sign-in-bar">
+            SIGN IN
+        </div>
+        <div class="sign-in-id-div">
+            <input id="sign-in-id" type="text" placeholder="Enter email" >
+        </div>
+
+        <div class="password-id-div">
+            <input id="password-id" type="text" placeholder="Enter Password">
+        </div>
+
+        <div class="password-manager">
+            <a id="forget-password" class="password-manager-link" href="">
+                Forget Password
+            </a>
+            <a id="sign-up-id"  class="password-manager-link" href="">
+                Sign up
+            </a>
+        </div>
+
+        <button class="login">
+            Log in
+        </button>
+
+
+    </div>
+
+    <script>
+        const grid = document.querySelector(".hack-box");
+        for (let i = 0; i < 2000; i++) {
+            const div = document.createElement("div");
+            div.classList.add("box");
+            grid.appendChild(div);
+        }
+    </script>
+
+</body>
+</html>
