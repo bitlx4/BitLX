@@ -11,6 +11,14 @@
     </head>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        .status-msg {
+            margin-top: 15px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 500;
+        }
     </style>
 <body>
 
@@ -29,12 +37,10 @@
         <div class="enterotp-div">
             <input id="enterotp-id" type="text" placeholder="Enter OTP" >
         </div>
-        <a href="home.html" class="verify-otp-link">
-            <button class="verify-otp">
+            <button class="verify-otp" id="VERIFY-BTN" onclick="verify_otp()">
                 VERIFY-OTP
             </button>
-        </a>
-
+        <div id="statusReport" class="status-msg"></div>
 
     </div>
 
@@ -49,6 +55,81 @@
         const randomGlitch = glitchContent[Math.floor(Math.random() * glitchContent.length)];
     div.innerText = randomGlitch;
         grid.appendChild(div);
+    }
+    function verify_otp(){
+        const otpValue = document.getElementById("enterotp-id").value.trim();
+        const statusReport = document.getElementById("statusReport");
+        const verifyBtn = document.getElementById("VERIFY-BTN");
+        
+        // Retrieve the stored email address set during the send phase
+        const savedEmail = sessionStorage.getItem("userEmailForOtp");
+
+        // 1. Basic Validation Checking
+        if (!otpValue) {
+            alert("Please enter the verification code sent to your email.");
+            return;
+        }
+        if (!savedEmail) {
+            alert("Session context broken. Please request a fresh OTP token.");
+            window.location.href = "forgetPassword.html";
+            return;
+        }
+
+        // 2. Set UI Elements to Processing/Loading State
+        verifyBtn.disabled = true;
+        verifyBtn.innerText = "VERIFYING...";
+        statusReport.style.color = "#e67e22"; // Orange informational color
+        statusReport.innerText = "checking the otp...";
+
+        // 3. Dispatch payload configurations directly to live Render environment
+        fetch("https://verify-otp-api.onrender.com/verify_otp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                to_email: savedEmail,
+                otp: otpValue
+            })
+        })
+        .then(async response => {
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.message || `System Error Code: ${response.status}`);
+            }
+            return data;
+        })
+        .then(data => {
+            // Check business validation responses from your FastAPI service
+            if (data.status === "success") {
+                statusReport.style.color = "#2ecc71"; // Green validation color
+                alert("for changing pass just email your new pass from the registered institute email to bitlx4@gmail.com")
+                statusReport.innerText = "OTP successfully verified! Access granted.";
+                
+                // Route target to pass updates post matching credential checkpoints
+                setTimeout(() => {
+                    window.location.href = "home.html"; 
+                }, 1500);
+            } else {
+                // Catches explicitly defined "otp not verified" structures safely
+                statusReport.style.color = "#e74c3c"; // Red mismatch error alert color
+                statusReport.innerText = data.message || "Invalid otp provided.";
+                
+                verifyBtn.disabled = false;
+                verifyBtn.innerText = "VERIFY-OTP";
+                alert("if otp is sent more than 5 min ago then resend the otp")
+            }
+        })
+        .catch(error => {
+            console.error("Pipeline Communication Error Trace:", error);
+            statusReport.style.color = "#e74c3c";
+            statusReport.innerText = `Network Failure: ${error.message}`;
+            
+            // Re-enable interface controls to allow retry submissions
+            verifyBtn.disabled = false;
+            verifyBtn.innerText = "VERIFY-OTP";
+        }); 
+        
     }
 </script>
 
