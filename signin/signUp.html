@@ -129,12 +129,12 @@ function otprequest(){
 
     .then(data => {
         if (data.message && data.message.includes("the email should end with @bitmesra.ac.in")){
-            alert("please add an authorized institute mail id that ends with @bitmesra.ac.in")
+            alert("please add an authorized institute mail id that ends with @bitmesra.ac.in");
         }
 
         else if (data.message && data.message.includes("otp send succesfully")) {
     
-            statusReport.style.color = "#e74c3c"; 
+            statusReport.style.color = "#2ecc71"; 
             statusReport.innerText = "otp sent, redirecting to verification page";
 
             sessionStorage.setItem("user_name",name);
@@ -156,8 +156,11 @@ function otprequest(){
         else if (data.message && data.message.includes("user exist")){
             alert("you are already a user , press ok to get to sign in page");
 
+            statusReport.style.color = "#e74c3c"; 
+            statusreport.innerText = "redirecting to sign in page";
+
             setTimeout(() => {
-                window.location.href = "signIn.html"
+                window.location.href = "signIn.html";
             }
             ,1500
             );
@@ -166,19 +169,22 @@ function otprequest(){
         else if (data.message && data.message.includes("otp not send ")){
             alert("otp is not sent to your mail please enter sign up again");
 
+            statusReport.style.color = "#e74c3c"; 
+            statusreport.innerText = "redirecting to sign up page";
+
             setTimeout(() => {
-                window.location.href = "signUp.html"
+                window.location.href = "signUp.html";
             }
             ,1500
             );
         }
 
         else if (data.message && data.message.includes("Database connection failed")){
-            alert("error code:db!con please send this error and screenshot with it to bitlx4@gmail.com")
+            alert("error code:db!con please send this error and screenshot with it to bitlx4@gmail.com");
         }
 
         else {
-            alert("error code: somethingHappenAtSignUp please send a screenshot of this error to bitlx4@gmail.com")
+            alert("error code: somethingHappenAtSignUp please send a screenshot of this error to bitlx4@gmail.com");
         }
     })
 
